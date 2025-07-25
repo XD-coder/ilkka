@@ -23,7 +23,7 @@ export const ImagesSlider = ({
   direction?: "up" | "down";
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [_loading, setLoading] = useState(false); // Consider if you need this state if you're preloading
+  const [_, setLoading] = useState(false); // Consider if you need this state if you're preloading
   const [loadedImages, setLoadedImages] = useState<string[]>([]);
 
   const handleNext = () => {
