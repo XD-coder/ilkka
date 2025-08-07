@@ -1,16 +1,11 @@
 import { Marquee } from "@/components/magicui/marquee";
 import Image from "next/image";
 import React from 'react';
-
-const productImages = [
-  '/ProductMarque/1.png',
-  '/ProductMarque/2.png',
-  '/ProductMarque/3.png',
-  '/ProductMarque/4.png',
-  '/ProductMarque/5.png',
-];
+import { imageConfig } from "@/lib/imageUtils";
 
 const ProductMarque = () => {
+  const productImages = imageConfig.productMarque.images;
+
   return (
     <div className="py-12 bg-background">
       <div className="container mx-auto px-4 text-center">
@@ -19,12 +14,13 @@ const ProductMarque = () => {
             <div key={index} className="mx-4 flex justify-center items-center">
               <Image 
                 src={src} 
-                alt={`Medical product ${index + 1} from Ilkka Healthcare`} 
+                alt={`Medical Product ${index + 1}`} 
                 width={200} 
                 height={200} 
                 className="rounded-lg"
                 loading="lazy"
-                sizes="200px"
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R6i+JCyf//Z"
               />
             </div>
           ))}

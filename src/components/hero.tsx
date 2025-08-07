@@ -3,13 +3,10 @@ import { motion } from "framer-motion";
 import React from "react";
 import { ImagesSlider } from "@/components/ui/images-slider";
 import { useRouter } from "next/navigation";
+import { imageConfig } from "@/lib/imageUtils";
 
 export function Hero() {
-  const images = [
-    "/heroImages/1.png",
-    "/heroImages/2.png",
-    "/heroImages/3.png",
-  ];
+  const images = imageConfig.hero.images;
   const router = useRouter();
 
   const containerVariants = {

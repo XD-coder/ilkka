@@ -1,4 +1,3 @@
-import Products from "@/components/products";
 import ProductSearch from "@/components/ProductSearch";
 import ProductMarque from "@/components/ProductMarque";
 import Footer from "@/components/footer";
@@ -120,7 +119,7 @@ export default function ProductsPage() {
               </p>
             </header>
           </div>
-          <Products />
+          
           <ProductSearch />
           <ProductMarque />
         </div>

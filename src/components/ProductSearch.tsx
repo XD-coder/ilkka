@@ -124,14 +124,14 @@ const ProductSearch = () => {
               <div key={index} onClick={() => handleCardClick(product)} className="cursor-pointer">
                 <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 h-full">
                   <CardHeader className="p-0">
-                    <div className="relative h-48 w-full">
+                    <div className="relative h-48 w-full overflow-hidden">
                       <Image 
                         src={product.image} 
                         alt={product.name} 
-                        fill 
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                        priority={index < 4} // Prioritize first 4 images
+                        width={300}
+                        height={192}
+                        className="object-cover w-full h-full"
+                        priority={index < 4}
                       />
                       <div className="absolute top-2 right-2 bg-primary text-primary-foreground px-2 py-1 rounded text-xs font-medium">
                         {product.category}

@@ -4,7 +4,6 @@ import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 import {Hero} from "@/components/hero";
 import ProductMarque from "@/components/ProductMarque";
-import Products from "@/components/products";
 import ProductSearch from "@/components/ProductSearch";
 import Services from "@/components/services";
 import Testimonials from "@/components/testimonials";
@@ -61,7 +60,6 @@ const page = () => {
         <Hero />
         <About />
         <Services />
-        <Products />
         <ProductSearch />
         <ProductMarque />
         <Testimonials />
