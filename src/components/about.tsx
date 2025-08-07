@@ -6,14 +6,14 @@ const About = () => {
     <section id="about" className="py-20 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12">
-            About ILKKA
+          <h2 id="about-heading" className="text-3xl md:text-4xl font-bold text-foreground mb-12">
+            About ILKKA Healthcare
           </h2>
           <div className="flex flex-col md:flex-row items-center justify-center gap-12">
             <div className="md:w-1/2">
               <Image
                 src="/team.png"
-                alt="Our Team"
+                alt="ILKKA Healthcare professional team members working together"
                 width={500}
                 height={300}
                 className="rounded-lg shadow-lg"

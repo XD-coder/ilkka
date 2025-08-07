@@ -1,0 +1,22 @@
+# Robots.txt for Ilkka Healthcare
+# Allow all crawlers access to all content
+User-agent: *
+Allow: /
+
+# Disallow access to API routes and admin areas
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# Sitemap location
+Sitemap: https://ilkka-healthcare.com/sitemap.xml
+
+# Crawl-delay for courtesy (optional)
+Crawl-delay: 1
+
+# Allow specific important pages
+Allow: /products
+Allow: /services
+Allow: /about
+Allow: /contact
+Allow: /blog
