@@ -125,7 +125,14 @@ const ProductSearch = () => {
                 <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 h-full">
                   <CardHeader className="p-0">
                     <div className="relative h-48 w-full">
-                      <Image src={product.image} alt={product.name} fill className="object-cover" />
+                      <Image 
+                        src={product.image} 
+                        alt={product.name} 
+                        fill 
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                        priority={index < 4} // Prioritize first 4 images
+                      />
                       <div className="absolute top-2 right-2 bg-primary text-primary-foreground px-2 py-1 rounded text-xs font-medium">
                         {product.category}
                       </div>

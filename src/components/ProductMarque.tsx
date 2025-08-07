@@ -17,7 +17,15 @@ const ProductMarque = () => {
         <Marquee pauseOnHover className="[--duration:20s]">
           {productImages.map((src, index) => (
             <div key={index} className="mx-4 flex justify-center items-center">
-              <Image src={src} alt={`Product ${index + 1}`} width={200} height={200} className="rounded-lg" />
+              <Image 
+                src={src} 
+                alt={`Medical product ${index + 1} from Ilkka Healthcare`} 
+                width={200} 
+                height={200} 
+                className="rounded-lg"
+                loading="lazy"
+                sizes="200px"
+              />
             </div>
           ))}
         </Marquee>

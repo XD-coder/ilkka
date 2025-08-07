@@ -2,7 +2,7 @@ export const productsData = [
   {
     name: 'Advanced Blood Pressure Monitor',
     description: 'Professional-grade digital blood pressure monitor with advanced accuracy technology.',
-    image: '/products/1.png',
+    image: '/Products/1.png',
     details: 'This state-of-the-art blood pressure monitor features clinically validated accuracy, irregular heartbeat detection, and memory storage for up to 60 readings. Perfect for home monitoring and professional healthcare settings.',
     category: 'Monitoring Devices',
     features: ['Clinically Validated', 'Memory Storage', 'Irregular Heartbeat Detection', 'Large Display'],

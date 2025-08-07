@@ -81,7 +81,14 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
           {/* Image Section */}
           <div className="relative flex min-h-[300px] items-center justify-center rounded-t-3xl bg-muted/30 p-6 lg:w-1/2 lg:min-h-full lg:rounded-l-3xl lg:rounded-t-none">
             <div className="relative h-full w-full max-h-96">
-              <Image src={product.image} alt={product.name} fill className="object-contain" />
+              <Image 
+                src={product.image} 
+                alt={product.name} 
+                fill 
+                className="object-contain"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
+              />
             </div>
             <div className="absolute left-6 top-6 rounded-full bg-primary px-4 py-1 text-sm font-medium text-primary-foreground">
               {product.category}
