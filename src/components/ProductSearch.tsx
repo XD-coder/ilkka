@@ -107,7 +107,7 @@ const ProductSearch = () => {
               <p>
                 Showing {filteredProducts.length} of {productsData.length} products
                 {searchTerm && (
-                  <span> for "{searchTerm}"</span>
+                  <span> for &ldquo;{searchTerm}&rdquo;</span>
                 )}
                 {selectedCategory !== 'All' && (
                   <span> in {selectedCategory}</span>

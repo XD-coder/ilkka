@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence, Variants } from "framer-motion"; // Import Variants
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 
 export const ImagesSlider = ({
   images,
@@ -26,23 +26,7 @@ export const ImagesSlider = ({
   const [, setLoading] = useState(false); // Consider if you need this state if you're preloading
   const [loadedImages, setLoadedImages] = useState<string[]>([]);
 
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex + 1 === images.length ? 0 : prevIndex + 1
-    );
-  };
-
-  const handlePrevious = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex - 1 < 0 ? images.length - 1 : prevIndex - 1
-    );
-  };
-
-  useEffect(() => {
-    loadImages();
-  }, [images]); // Added 'images' to dependency array for robustness
-
-  const loadImages = () => {
+  const loadImages = useCallback(() => {
     setLoading(true);
     const loadPromises = images.map((image) => {
       return new Promise((resolve, reject) => {
@@ -59,7 +43,23 @@ export const ImagesSlider = ({
         setLoading(false);
       })
       .catch((error) => console.error("Failed to load images", error));
-  };
+  }, [images]);
+
+  const handleNext = useCallback(() => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex + 1 === images.length ? 0 : prevIndex + 1
+    );
+  }, [images.length]);
+
+  const handlePrevious = useCallback(() => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex - 1 < 0 ? images.length - 1 : prevIndex - 1
+    );
+  }, [images.length]);
+
+  useEffect(() => {
+    loadImages();
+  }, [loadImages]); // Now loadImages is properly defined as useCallback
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -85,7 +85,7 @@ export const ImagesSlider = ({
         clearInterval(interval as number); // Cast to number for browser clearInterval
       }
     };
-  }, [autoplay, images.length]); // Add autoplay and images.length to dependencies
+  }, [autoplay, handleNext, handlePrevious]); // Add handleNext and handlePrevious to dependencies
 
   const slideVariants: Variants = { // Explicitly type slideVariants as Variants
     initial: {

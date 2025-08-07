@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import Image from 'next/image';
 import { blogData, categories } from '@/lib/blogData';
 
 interface BlogPost {

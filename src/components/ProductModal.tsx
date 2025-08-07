@@ -2,8 +2,6 @@
 
 import React, { useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
-// Note: You can remove the Card components from shadcn/ui if they are not used in the modal anymore.
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 // Import your custom hook
 import { useLockBodyScroll } from '@/app/hooks/useLockBodyScroll'; // Adjust the import path as necessary
@@ -124,7 +122,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
                 <div className="rounded-xl bg-secondary/50 p-6">
                   <dl className="space-y-4">
                     {Object.entries(product.specifications)
-                      .filter(([_, value]) => value !== undefined)
+                      .filter(([, value]) => value !== undefined)
                       .map(([key, value]) => (
                         <div key={key} className="flex justify-between items-center border-b border-border/30 pb-2 last:border-b-0 last:pb-0">
                           <dt className="text-sm font-medium text-muted-foreground">{key}</dt>

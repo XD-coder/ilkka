@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { verifyEmailConfig, getEmailConfig } from '@/lib/email-config';
 import { sendEmail } from '@/lib/email-service';
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     // Only allow in development mode for security
     if (process.env.NODE_ENV === 'production') {

@@ -35,49 +35,57 @@ function isRateLimited(key: string): boolean {
 }
 
 // Input validation
-function validateContactFormData(data: any): { isValid: boolean; errors: string[] } {
+function validateContactFormData(data: unknown): { isValid: boolean; errors: string[] } {
   const errors: string[] = [];
 
+  // Check if data is an object
+  if (!data || typeof data !== 'object') {
+    errors.push('Invalid data format');
+    return { isValid: false, errors };
+  }
+
+  const formData = data as Record<string, unknown>;
+
   // Required fields
-  if (!data.name || typeof data.name !== 'string' || data.name.trim().length < 2) {
+  if (!formData.name || typeof formData.name !== 'string' || formData.name.trim().length < 2) {
     errors.push('Name must be at least 2 characters long');
   }
 
-  if (!data.email || typeof data.email !== 'string' || !validateEmail(data.email)) {
+  if (!formData.email || typeof formData.email !== 'string' || !validateEmail(formData.email)) {
     errors.push('Valid email address is required');
   }
 
-  if (!data.subject || typeof data.subject !== 'string' || data.subject.trim().length < 5) {
+  if (!formData.subject || typeof formData.subject !== 'string' || formData.subject.trim().length < 5) {
     errors.push('Subject must be at least 5 characters long');
   }
 
-  if (!data.message || typeof data.message !== 'string' || data.message.trim().length < 10) {
+  if (!formData.message || typeof formData.message !== 'string' || formData.message.trim().length < 10) {
     errors.push('Message must be at least 10 characters long');
   }
 
   // Optional fields validation
-  if (data.phone && (typeof data.phone !== 'string' || !validatePhone(data.phone))) {
+  if (formData.phone && (typeof formData.phone !== 'string' || !validatePhone(formData.phone))) {
     errors.push('Invalid phone number format');
   }
 
-  if (data.company && typeof data.company !== 'string') {
+  if (formData.company && typeof formData.company !== 'string') {
     errors.push('Company name must be a string');
   }
 
   // Length limits
-  if (data.name && data.name.length > 100) {
+  if (formData.name && typeof formData.name === 'string' && formData.name.length > 100) {
     errors.push('Name must be less than 100 characters');
   }
 
-  if (data.subject && data.subject.length > 200) {
+  if (formData.subject && typeof formData.subject === 'string' && formData.subject.length > 200) {
     errors.push('Subject must be less than 200 characters');
   }
 
-  if (data.message && data.message.length > 2000) {
+  if (formData.message && typeof formData.message === 'string' && formData.message.length > 2000) {
     errors.push('Message must be less than 2000 characters');
   }
 
-  if (data.company && data.company.length > 100) {
+  if (formData.company && typeof formData.company === 'string' && formData.company.length > 100) {
     errors.push('Company name must be less than 100 characters');
   }
 

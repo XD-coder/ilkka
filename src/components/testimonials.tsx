@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 
 const testimonialsData = [
   {
@@ -99,7 +98,7 @@ const Testimonials = () => {
               <StarRating rating={testimonial.rating} />
               
               <p className="text-muted-foreground mt-4 leading-relaxed">
-                "{testimonial.content}"
+                &ldquo;{testimonial.content}&rdquo;
               </p>
             </div>
           ))}
