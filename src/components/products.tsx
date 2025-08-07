@@ -11,6 +11,10 @@ interface Product {
   description: string;
   image: string;
   details: string;
+  category: string;
+  features: string[];
+  specifications: Record<string, string | undefined>;
+  price: string;
 }
 
 const Products = () => {
